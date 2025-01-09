@@ -3,45 +3,73 @@ class PhoneBook:
         self.__contacts: dict[str, dict[str, str | int]] = {}
 
     def __create_contact(self) -> None:
-        name = input("Enter the name: ").strip().lower()
+        name: str = input("Enter the name: ").strip().lower()
+        print()
         if name in self.__contacts:
             print(f"Contact '{name}' already exists!")
         else:
             try:
-                age = int(input("Enter your age: ").strip())
-                email = input("Enter your email ID: ").strip()
-                phone = input("Enter your phone number: ").strip()
+                age: int = int(input("Enter your age: ").strip())
+                email: str = input("Enter your email ID: ").strip()
+                phone: str = input("Enter your phone number: ").strip()
                 self.__contacts[name] = {"age": age, "email": email, "phone": phone}
                 print(f"Contact '{name}' created successfully.")
             except ValueError:
                 print("Invalid input! Age must be an integer.")
 
     def __view_contact(self) -> None:
-        name = input("Enter the contact name to view: ").strip().lower()
+        name: str = input("Enter the contact name to view: ").strip().lower()
+        print()
         if name not in self.__contacts:
             print(f"Contact '{name}' not found.")
         else:
-            contact = self.__contacts[name]
+            contact: dict[str , str | int] = self.__contacts[name]
             print(f"Details of contact '{name}':")
             for key, value in contact.items():
                 print(f"  {key.capitalize()}: {value}")
 
     def __update_contact(self) -> None:
-        name = input("Enter the name to update contact: ").strip().lower()
+        name: str = input("Enter the name to update contact: ").strip().lower()
+        print()
         if name not in self.__contacts:
             print(f"Contact '{name}' not found.")
         else:
             try:
-                age = int(input("Enter your age: ").strip())
-                email = input("Enter your email ID: ").strip()
-                phone = input("Enter your phone number: ").strip()
-                self.__contacts[name] = {"age": age, "email": email, "phone": phone}
-                print(f"Contact '{name}' updated successfully.")
+                print("1. To update age")
+                print("2. To update email")
+                print("3. To update phone number")
+                print("4. To update everything press")
+                print()
+                ch: int = int(input("Enter your choice to update: "))
+                print()
+                if ch == 1:
+                    age: int = int(input("Enter your age: ").strip())
+                    self.__contacts[name]['age'] = age
+                    print(f"age updated successfully.")
+
+                elif ch == 2:
+                    email: str = input("Enter your email ID: ").strip()
+                    self.__contacts[name]['email'] = email
+                    print(f"email updated successfully.")
+
+                elif ch == 3:
+                    phone: str = input("Enter your phone number: ").strip()
+                    self.__contacts[name]['phone'] = phone
+                    print(f"phone number updated successfully.")
+
+                elif ch == 4:
+                    age: int = int(input("Enter your age: ").strip())
+                    email: str = input("Enter your email ID: ").strip()
+                    phone: str = input("Enter your phone number: ").strip()
+                    self.__contacts[name] = {"age": age, "email": email, "phone": phone}
+                    print(f'Contact "{name}" updated successfully.')
+
             except ValueError:
                 print("Invalid input! Age must be an integer.")
 
     def __delete_contact(self) -> None:
-        name = input("Enter the contact name to delete: ").strip().lower()
+        name: str = input("Enter the contact name to delete: ").strip().lower()
+        print()
         if name not in self.__contacts:
             print(f"Contact '{name}' not found.")
         else:
@@ -49,18 +77,19 @@ class PhoneBook:
             print(f"Contact '{name}' deleted successfully.")
 
     def __count_total_contacts(self) -> None:
-        total_contacts = len(self.__contacts)
+        total_contacts: int = len(self.__contacts)
         if total_contacts == 0:
             print("The phonebook is empty.")
         else:
             print(f"The total number of contacts is: {total_contacts}")
 
     def __search_contact(self) -> None:
-        name = input("Enter the contact name to search: ").strip().lower()
+        name: str = input("Enter the contact name to search: ").strip().lower()
+        print()
         if name not in self.__contacts:
             print(f"Contact '{name}' not found.")
         else:
-            contact = self.__contacts[name]
+            contact: dict[str , str | int] = self.__contacts[name]
             print(f"Details of contact '{name}':")
             for key, value in contact.items():
                 print(f"  {key.capitalize()}: {value}")
@@ -89,7 +118,9 @@ class PhoneBook:
             print("7. Exit")
 
             try:
-                choice = int(input("Enter your choice: ").strip())
+                print()
+                choice: int = int(input("Enter your choice: ").strip())
+                print()
                 if choice == 7:
                     print("Exiting the program. Goodbye!")
                     break
