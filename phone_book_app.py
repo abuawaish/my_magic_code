@@ -38,7 +38,7 @@ class PhoneBook:
                 print("1. To update age")
                 print("2. To update email")
                 print("3. To update phone number")
-                print("4. To update everything press")
+                print("4. To update everything")
                 print()
                 ch: int = int(input("Enter your choice to update: "))
                 print()
