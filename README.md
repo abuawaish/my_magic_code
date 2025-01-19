@@ -12,6 +12,7 @@ The repository comprises the following Python scripts:
 - **phone_book_app.py**: A command-line application for managing a phone book, allowing users to add, search, and delete contacts.
 - **stack.py**: An implementation of the stack data structure, including common operations such as push, pop, and peek.
 - **whatsapp_automation.py**: Automates sending messages via WhatsApp using the twilio library.
+- **file_operation.py**: It provides methods for managing file operations, including creating, reading, writing, updating, clearing, and deleting files
 
 ## Requirements
 
